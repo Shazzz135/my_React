@@ -1,0 +1,86 @@
+.app-container {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+/* Creator Info Box */
+.creator-info-box {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: #121212; /* Subtle semi-transparent black */
+  color: rgba(255, 255, 255, 0.87); /* Slightly muted white for blending */
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  max-width: 300px;
+  backdrop-filter: blur(5px); /* Adds a subtle blur effect for blending */
+}
+
+.creator-info-box h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.75rem;
+  color: rgba(50, 50, 50, 1); /* Match the text color */
+}
+
+.creator-info-box p {
+  margin: 0;
+  line-height: 1;
+  font-size: 0.75rem;
+  text-align: right;
+  color: rgba(50, 50, 50, 1); /* Match the text color */
+}
+
+.creator-info-box a {
+  color: rgba(50, 50, 50, 1); /* Match the text color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold;
+}
+
+.creator-info-box a:hover {
+  color: #4103d3; /* Add a subtle hover effect */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .creator-info-box {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    max-width: 250px;
+  }
+
+  .creator-info-box h2 {
+    font-size: 0.7rem;
+  }
+
+  .creator-info-box p {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .creator-info-box {
+    bottom: 0.25rem;
+    right: 0.25rem;
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    max-width: 200px;
+  }
+
+  .creator-info-box h2 {
+    font-size: 0.6rem;
+  }
+
+  .creator-info-box p {
+    font-size: 0.6rem;
+  }
+}

@@ -1,0 +1,172 @@
+.about-container {
+    margin-top: 100px;
+    padding: 2rem;
+    background-color: #121212; /* Matches the global background */
+    color: #fff;
+    font-family: Trebuchet MS, sans-serif;
+    text-align: center;
+    max-height: 80vh; /* Adjust the height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    box-sizing: border-box; /* Ensure padding doesn't affect the width/height */
+}
+
+.sub-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #70029b, #a200ff, #f0d9ff);
+    background-size: 200% 200%; /* Ensure the gradient spans beyond the visible area */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-rotate 5s linear infinite; /* Add animation */
+}
+
+.img-container {
+    display: flex;
+    justify-content: center; /* Center the images horizontally */
+    gap: 2rem; /* Add spacing between images */
+    flex-wrap: wrap; /* Allow images to wrap on smaller screens */
+}
+
+.about-img {
+    max-width: 200px; /* Limit the maximum width of the images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Add rounded corners */
+    border: 2px solid darkred; /* Add a dark red border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add hover effects */
+    object-fit: contain; /* Ensure the image fits within its container without stretching */
+}
+
+.detail-img {
+    max-width: 600px; /* Limit the maximum width of the images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Add rounded corners */
+    border: 2px solid darkred; /* Add a dark red border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add hover effects */
+    object-fit: contain; /* Ensure the image fits within its container without stretching */
+    margin-top: 10px;
+}
+
+.about-img:hover {
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover */
+}
+
+.detail-img:hover {
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover */
+}
+
+.about-description {
+    font-size: 1rem; /* Reduced text size */
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.about-details h2 {
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+    background: linear-gradient(to right, #70029b, #a200ff, #f0d9ff);
+    background-size: 200% 200%; /* Ensure the gradient spans beyond the visible area */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-rotate 5s linear infinite; /* Add animation */
+}
+
+.about-details ul {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    gap: 1rem; /* Add spacing between items */
+    justify-content: center; /* Center the items */
+}
+
+.about-details ul li {
+    font-size: 1rem;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem; /* Add padding inside the list items */
+    border: 1px solid purple; /* Add a purple border */
+    border-radius: 5px; /* Add rounded corners */
+    text-align: center; /* Center the text inside the list item */
+    background-color: rgba(255, 255, 255, 0.1); /* Optional: Add a subtle background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add hover effects */
+}
+
+.about-details ul li:hover {
+    transform: scale(1.15); /* Slightly enlarge the item on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover */
+}
+
+@keyframes gradient-rotate {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Media query for screens with a max width of 800px */
+@media (max-width: 800px) {
+    .sub-container {
+        flex-direction: column; /* Stack images and text vertically */
+        gap: 1rem; /* Add spacing between elements */
+    }
+
+    .img-container {
+        justify-content: center; /* Center the images */
+        margin-bottom: 1rem; /* Add spacing below each image */
+        padding: 10px;
+    }
+
+    .about-description {
+        margin-left: 1rem; /* Reduce horizontal margin for smaller screens */
+        margin-right: 1rem;
+        text-align: center; /* Keep text justified for readability */
+    }
+
+    .about-img {
+        max-width: 150px; /* Reduce the maximum width of the images */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .detail-img {
+        max-width: 250px; /* Reduce the maximum width of the images */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .about-details ul li {
+        font-size: 0.8rem; /* Reduce font size */
+        padding: 0.3rem 0.8rem; /* Reduce padding */
+        margin: 0.3rem; /* Reduce margin */
+        border: 1px solid purple; /* Keep the border */
+        border-radius: 4px; /* Slightly smaller rounded corners */
+    }
+
+    .about-details ul {
+        gap: 0.5rem; /* Reduce spacing between items */
+    }
+}

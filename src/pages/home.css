@@ -1,0 +1,108 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  background-color: #121212; /* Matches the global background */
+  color: #fff;
+  font-family: Trebuchet MS, sans-serif;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  height: calc(100vh - 5rem); /* Adjust height to account for the navbar */
+  margin-top: 5rem; /* Add space to avoid overlapping with the navbar */
+  text-align: center; /* Ensure text is centered */
+}
+
+.name-row {
+  display: flex; /* Arrange the two h1 elements in a row */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Align vertically */
+  gap: 0.75rem; /* Reduced spacing between the two h1 elements */
+}
+
+.school-row {
+  display: flex; /* Arrange the two h1 elements in a row */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Align vertically */
+  gap: 0.75rem; /* Reduced spacing between the two h1 elements */
+}
+
+.name {
+  background: linear-gradient(to right, #70029b, #a200ff, #f0d9ff);
+  background-size: 275% 275%; /* Ensure the gradient spans beyond the visible area */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-rotate 5s linear infinite; /* Add animation */
+}
+
+.school {
+  background: linear-gradient(to right, #70029b, #a200ff, #f0d9ff);
+  background-size: 275% 275%; /* Ensure the gradient spans beyond the visible area */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-rotate 5s linear infinite; /* Add animation */
+}
+
+/* Keyframes for rotating the gradient */
+@keyframes gradient-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 0.5rem; /* Reduced margin to decrease the gap */
+}
+
+p {
+  font-size: 2rem;
+  margin: 0.5rem 0; /* Reduced horizontal and vertical spacing */
+}
+
+/* Media query for screens with a max width of 600px */
+/* Media query for screens with a max width of 600px */
+@media (max-width: 700px) {
+  .content {
+    margin-top: 2rem; /* Adjusted for smaller screens */
+  }
+
+  h1 {
+    font-size: 2rem; /* Reduced by 60% */
+  }
+
+  p {
+    font-size: 1rem; /* Reduced by 60% */
+    margin: 0rem;
+  }
+
+  .name-row .school-row {
+    gap: 0.2rem; /* Reduced by 60% */
+  }
+
+  .name .school{
+    font-size: 1.6rem; /* Reduced by 60% */
+  }
+}

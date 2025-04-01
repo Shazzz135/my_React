@@ -1,0 +1,61 @@
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes fireFlicker {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: inherit;
+  overflow: hidden;
+  animation: slideInFromRight 3s ease-in-out;
+}
+
+.name-animation {
+  font-size: 4rem;
+  font-weight: bold;
+  white-space: nowrap;
+  background: linear-gradient(to bottom, #70029b, #a200ff, #f0d9ff);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  animation: fireFlicker 2s infinite ease-in-out;
+}
+
+@media (max-width: 700px) {
+  .loading-text {
+    font-size: 2rem;
+  }
+}
