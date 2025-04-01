@@ -4,6 +4,8 @@ import Loading from "./pages/loading";
 import Nav from "./pages/nav";
 import Home from "./pages/home";
 import About from "./pages/about";
+import Education from "./pages/education";
+import Projects from "./pages/projects";
 import "./App.css";
 
 const App: React.FC = () => {
@@ -31,6 +33,8 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/projects" element={<Projects />} />
             
           </Routes>
         )}

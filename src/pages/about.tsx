@@ -22,14 +22,28 @@ const About: React.FC = () => {
         </ul>
       </div>
       <div className="about-details">
-        <h2>Skills</h2>
+        <h2>Tech Skills</h2>
         <ul className="hobbies-list">
-          <li>Programming</li>
-          <li>Gaming</li>
-          <li>Reading</li>
-          <li>Learning new things</li>
-          <li>Exploring new technologies</li>
-          <li>Building projects</li>
+          <li>Python</li>
+          <li>C/C++</li>
+          <li>Java</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Swift/SwiftUI</li>
+          <li>React(with Vite)</li>
+        </ul>
+      </div>
+      <div className="about-details">
+        <h2>Tools and IDE's</h2>
+        <ul className="hobbies-list">
+          <li>Eclipse</li>
+          <li>VSCode</li>
+          <li>PyCharm</li>
+          <li>Replit</li>
+          <li>Xcode/Android Studio</li>
+          <li>Git</li>
+          <li>Azure</li>
         </ul>
       </div>
     </div>
