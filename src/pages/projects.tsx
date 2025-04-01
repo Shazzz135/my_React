@@ -20,7 +20,7 @@ const Projects: React.FC = () => {
         Your browser does not support the video tag.
       </video>
       <p className="project-description">
-        This is a brief description of the project, explaining its purpose, features, and technologies used.
+      I developed a mobile game for iOS(android coming soon) from the ground up, using Swift as the primary programming language. Responsible for every element of the project, I designed the visuals, created the UI, and implemented all underlying calculations. After completing the app, I successfully published it on the Apple App Store as a sole proprietor. This project spanned the entire summer, during which I both learned Swift and crafted a fully functional game, ultimately managing the technical, creative, and publishing processes independently.
       </p>
     </li>
     <li>
@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
         Your browser does not support the video tag.
       </video>
       <p className="project-description">
-        This is another project description, providing details about the project and its significance.
+      <strong><a className="flap-link" href="https://spencerkelly.tech/">FlapJacck</a></strong> and I collaborated on this project to deepen our understanding of the C programming language and Git version control workflows. Using GitHub, he initiated the project repository, while I created my own branch through forking. I then made individual contributions and submitted pull requests, which allowed him to review and merge updates seamlessly. This project, which took approximately a week to configure, was instrumental in enhancing our collaborative skills and emphasizing the practical value of GitHub in team-based development.
       </p>
     </li>
   </ul>

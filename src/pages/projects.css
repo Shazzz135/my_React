@@ -61,6 +61,11 @@
     background-color: rgba(255, 255, 255, 0.1); /* Add a subtle background */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
     transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add hover effects */
+    width: 100%; /* Allow the box to expand dynamically */
+    max-width: 600px; /* Set a maximum width for consistency */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Distribute space between elements */
 }
 
 .projects-list li:hover {
@@ -73,12 +78,13 @@
     margin-bottom: 0.5rem;
     color: #a200ff; /* Purple color for the subtitle */
     font-weight: bold;
+    text-align: center;
 }
 
 .project-video {
     width: 100%;
-    max-width: 600px; /* Limit the video width */
-    margin: 1rem 0;
+    max-width: 100%; /* Ensure the video fits within the list item */
+    height: auto;
     border-radius: 5px; /* Add rounded corners to the video */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow to the video */
 }
@@ -88,6 +94,17 @@
     line-height: 1.6;
     color: #fff; /* White text for the description */
     margin-top: 0.5rem;
+    text-align: center;
+}
+
+.flap-link {
+    color: #a200ff; /* Default purple color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.flap-link:hover {
+    color: red; /* Turn red on hover */
 }
 
 @keyframes gradient-rotate {
@@ -111,24 +128,47 @@
 /* Media query for screens with a max width of 800px */
 @media (max-width: 800px) {
     .projects-container {
-        padding: 1rem; /* Reduce padding for smaller screens */
+        padding: 0.8rem; /* Reduce padding */
+        max-width: 90%; /* Make the container width smaller */
     }
 
     .projects-description {
-        margin-left: 1rem; /* Reduce horizontal margin for smaller screens */
-        margin-right: 1rem;
+        margin-left: 0.8rem; /* Reduce horizontal margin */
+        margin-right: 0.8rem;
         text-align: center; /* Keep text justified for readability */
-    }
-
-    .projects-list li {
         font-size: 0.8rem; /* Reduce font size */
-        padding: 0.3rem 0.8rem; /* Reduce padding */
-        margin: 0.3rem; /* Reduce margin */
-        border: 3px solid purple; /* Keep the border */
-        border-radius: 4px; /* Slightly smaller rounded corners */
     }
 
     .projects-list {
-        gap: 0.5rem; /* Reduce spacing between items */
+        flex-direction: column; /* Stack list items vertically */
+        align-items: center; /* Center align the list items */
+        gap: 0.8rem; /* Reduce spacing between items */
+    }
+
+    .projects-list li {
+        width: 100%; /* Make list items take full width */
+        max-width: 80%; /* Reduce the max-width of list items */
+        padding: 0.8rem; /* Reduce padding */
+        margin: 0.4rem auto; /* Center the list items */
+        box-shadow: 0 1.6px 3.2px rgba(0, 0, 0, 0.1); /* Scale shadow */
+    }
+
+    .project-video {
+        max-width: 100%; /* Ensure the video fits within the list item */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .project-description {
+        font-size: 0.8rem; /* Reduce font size */
+        text-align: center; /* Center align the description */
+    }
+
+    .project-subtitle {
+        font-size: 1rem; /* Reduce subtitle size */
+        text-align: center; /* Center align the subtitle */
+    }
+
+    .flap-link {
+        font-size: 0.8rem; /* Reduce link font size */
     }
 }
