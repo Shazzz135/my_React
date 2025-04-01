@@ -20,7 +20,7 @@ const Projects: React.FC = () => {
         Your browser does not support the video tag.
       </video>
       <p className="project-description">
-      I developed a mobile game for iOS(android coming soon) from the ground up, using Swift as the primary programming language. Responsible for every element of the project, I designed the visuals, created the UI, and implemented all underlying calculations. After completing the app, I successfully published it on the Apple App Store as a sole proprietor. This project spanned the entire summer, during which I both learned Swift and crafted a fully functional game, ultimately managing the technical, creative, and publishing processes independently.
+      I developed a mobile game for iOS from the ground up, using Swift as the primary programming language. Responsible for every element of the project, I designed the visuals, created the UI, and implemented all underlying calculations. After completing the app, I successfully published it on the Apple App Store as a sole proprietor. This project spanned the entire summer, during which I learned Swift and crafted a fully functional game, ultimately managing the technical, creative, and publishing processes independently.
       </p>
     </li>
     <li>
