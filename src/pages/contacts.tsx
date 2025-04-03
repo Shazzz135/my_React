@@ -13,10 +13,6 @@ const Contacts: React.FC = () => {
             <p>Email: </p>
             <p className="contact">nickshahbaz135@gmail.com</p>
         </div>
-        <div className="contact-row">
-            <p>Phone: </p>
-            <p className="contact">+1 416-565-3093</p>
-        </div>
       </div>
     </div>
   );
