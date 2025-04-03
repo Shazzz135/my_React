@@ -53,8 +53,8 @@
 
 .projects-list li {
     font-size: 1rem;
-    margin: 1rem;
-    padding: 1rem;
+    margin: 0.8rem; /* Reduce margin */
+    padding: 0.8rem; /* Reduce padding */
     border: 1px solid purple; /* Add a purple border */
     border-radius: 5px; /* Add rounded corners */
     text-align: left; /* Align text to the left */
@@ -62,10 +62,12 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
     transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add hover effects */
     width: 100%; /* Allow the box to expand dynamically */
-    max-width: 600px; /* Set a maximum width for consistency */
+    max-width: 500px; /* Shrink the container width */
     display: flex;
     flex-direction: column; /* Stack content vertically */
     justify-content: space-between; /* Distribute space between elements */
+    margin-left: auto;
+    margin-right: auto; /* Center the list items */
 }
 
 .projects-list li:hover {
@@ -83,10 +85,11 @@
 
 .project-video {
     width: 100%;
-    max-width: 100%; /* Ensure the video fits within the list item */
-    height: auto;
+    max-width: 300px; /* Shrink the video width */
+    height: auto; /* Maintain aspect ratio */
     border-radius: 5px; /* Add rounded corners to the video */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow to the video */
+    margin: 0 auto; /* Center the video */
 }
 
 .project-description {
@@ -95,6 +98,8 @@
     color: #fff; /* White text for the description */
     margin-top: 0.5rem;
     text-align: center;
+    margin-left: 3rem;
+    margin-right: 3rem;
 }
 
 .flap-link {
@@ -161,6 +166,8 @@
     .project-description {
         font-size: 0.8rem; /* Reduce font size */
         text-align: center; /* Center align the description */
+        margin-left: 1rem;
+        margin-right: 1rem; /* Reduce horizontal margin */
     }
 
     .project-subtitle {

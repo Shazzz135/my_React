@@ -1,0 +1,118 @@
+.contacts-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+    color: #fff;
+    font-family: Trebuchet MS, sans-serif;
+    text-align: center;
+    padding-bottom: 50px;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 5rem);
+    margin-top: 5rem;
+    text-align: center;
+  }
+  
+  .text-row {
+    display: block;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .text {
+    background: linear-gradient(to right, #70029b, #a200ff, #f0d9ff);
+    background-size: 275% 275%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-rotate 5s linear infinite;
+  }
+  
+  .contact-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .contact {
+    background: linear-gradient(to right, #70029b, #a200ff, #f0d9ff);
+    background-size: 275% 275%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-rotate 5s linear infinite;
+  }
+  
+  /* Keyframes for rotating the gradient */
+  @keyframes gradient-rotate {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 50% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    75% {
+      background-position: 50% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+  }
+  
+  /* Media query for responsive design */
+  @media (max-width: 700px) {
+    .content {
+      margin-top: 2rem;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    p {
+      font-size: 1rem;
+      margin: 0rem;
+      margin-top: 1rem;
+    }
+  
+    .text-row {
+      gap: 0.2rem;
+    }
+  
+    .contact-row {
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+  
+    .text {
+      font-size: 1.6rem;
+      margin-top: 0;
+    }
+
+    .contact {
+        font-size: 1.2rem;
+        margin-top: 0;
+    }
+  }
