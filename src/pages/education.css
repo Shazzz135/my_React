@@ -8,8 +8,16 @@
     max-height: 80vh; /* Adjust the height as needed */
     overflow-y: auto; /* Enable vertical scrolling */
     box-sizing: border-box; /* Ensure padding doesn't affect the width/height */
-    margin-left: 4rem;
-    margin-right: 4rem;
+    width: 95%; /* Expanded to take most of the screen width */
+    margin: 100px auto 0; /* Top, horizontal auto (centering), bottom */
+    margin-left: 2.5%; /* Very small margins */
+    margin-right: 2.5%;
+}
+
+.sub-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .education-title {
@@ -31,37 +39,129 @@
     margin-right: 2rem;
 }
 
+/* Row layout for category containers */
+.categories-row {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Increased gap between containers */
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+/* Common styles for all category containers */
+.category-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 18px; /* Increased padding */
+    margin-top: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+    width: 47%; /* Wider containers */
+    max-width: 550px; /* Increased max width */
+}
+
+.category-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Specific styles for each category container */
+.university-container {
+    background: linear-gradient(135deg, rgba(35, 10, 60, 0.6), rgba(20, 20, 30, 0.8));
+    border: 1px solid rgba(120, 40, 180, 0.3);
+}
+
+.achievements-container {
+    background: linear-gradient(135deg, rgba(10, 35, 60, 0.6), rgba(20, 25, 35, 0.8));
+    border: 1px solid rgba(40, 120, 180, 0.3);
+}
+
+.education-details {
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
 .education-details h2 {
-    font-size: 1.8rem;
+    font-size: 1.62rem;
+    margin-top: 0.9rem;
     background: linear-gradient(to right, #70029b, #a200ff, #f0d9ff);
-    background-size: 200% 200%; /* Ensure the gradient spans beyond the visible area */
+    background-size: 200% 200%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient-rotate 5s linear infinite; /* Add animation */
+    animation: gradient-rotate 5s linear infinite;
+    display: inline-block;
+    padding: 4.5px 13.5px;
+    border-radius: 18px;
+    position: relative;
+}
+
+.education-details h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45px;
+    height: 2.7px;
+    background: linear-gradient(to right, #70029b, #a200ff);
+    border-radius: 3px;
 }
 
 .education-details ul {
-    display: block; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    display: flex;
+    flex-direction: column; /* Changed to column for vertical stacking */
+    flex-wrap: nowrap; /* No wrapping needed for column layout */
     list-style: none;
     padding: 0;
-    margin: 0.5rem 0;
-    gap: 1rem; /* Add spacing between items */
-    justify-content: center; /* Center the items */
+    margin: 0.9rem 0;
+    gap: 0.72rem;
+    align-items: center; /* Center items horizontally within the column */
+    width: 100%; /* Take full width of container */
 }
 
 .education-details ul li {
-    font-size: 1rem;
-    margin: 1rem;
-    text-align: center; /* Center the text inside the list item */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add hover effects */
+    font-size: 0.9rem;
+    margin: 0.27rem;
+    padding: 0.45rem 1.08rem;
+    border: 1px solid rgba(162, 0, 255, 0.5);
+    border-radius: 27px;
+    text-align: center;
+    background: rgba(70, 10, 100, 0.3);
+    box-shadow: 0 3.6px 7.2px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: 75%; /* Set width to create consistent sizing */
+    max-width: 300px; /* Prevent items from becoming too wide */
+}
+
+.education-details ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(112, 2, 155, 0.5), rgba(162, 0, 255, 0.5));
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
 }
 
 .education-details ul li:hover {
-    transform: scale(1.15); /* Slightly enlarge the item on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover */
+    transform: translateY(-4.5px) scale(1.05);
+    box-shadow: 0 5.4px 10.8px rgba(0, 0, 0, 0.3);
+    border-color: rgba(240, 217, 255, 0.8);
+    color: #f0d9ff;
+}
+
+.education-details ul li:hover::before {
+    transform: scaleX(1);
 }
 
 @keyframes gradient-rotate {
@@ -84,23 +184,62 @@
 
 /* Media query for screens with a max width of 800px */
 @media (max-width: 800px) {
-    .education-container {
-        padding: 1rem; /* Reduce padding for smaller screens */
+    .sub-container {
+        flex-direction: column;
+        gap: 1rem;
     }
-
+    
     .education-description {
-        margin-left: 1rem; /* Reduce horizontal margin for smaller screens */
+        margin-left: 1rem;
         margin-right: 1rem;
-        text-align: center; /* Keep text justified for readability */
+        text-align: center;
     }
-
+    
     .education-details ul li {
-        font-size: 0.8rem; /* Reduce font size */
-        padding: 0.3rem 0.8rem; /* Reduce padding */
-        margin: 0.3rem; /* Reduce margin */
+        font-size: 0.63rem;
+        padding: 0.27rem 0.72rem;
+        margin: 0.27rem;
+        border: 1px solid purple;
+        border-radius: 3.6px;
     }
-
+    
     .education-details ul {
-        gap: 0.5rem; /* Reduce spacing between items */
+        gap: 0.45rem;
+    }
+    
+    .categories-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .category-container {
+        width: 90%;
+        padding: 12px;
+        margin: 8px auto;
+        border-radius: 12px;
+        max-width: 450px;
+    }
+    
+    .education-container {
+        width: 98%;
+        margin-left: 1%;
+        margin-right: 1%;
+        padding: 1rem;
+    }
+}
+
+/* Medium screens */
+@media (max-width: 1200px) {
+    .education-container {
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        width: 95%;
+    }
+    
+    .category-container {
+        width: 47%;
+        max-width: 500px;
     }
 }

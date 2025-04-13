@@ -8,8 +8,10 @@
     max-height: 80vh; /* Adjust the height as needed */
     overflow-y: auto; /* Enable vertical scrolling */
     box-sizing: border-box; /* Ensure padding doesn't affect the width/height */
-    margin-left: 4rem;
-    margin-right: 4rem;
+    width: 95%; /* Expanded to take most of the screen width */
+    margin: 100px auto 0; /* Top, horizontal auto (centering), bottom */
+    margin-left: 2.5%; /* Very small margins */
+    margin-right: 2.5%;
 }
 
 .sub-container {
@@ -44,42 +46,94 @@
     margin-right: 2rem;
 }
 
+.about-details {
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.about-details:hover {
+    transform: translateY(-5px);
+}
+
 .about-details h2 {
-    font-size: 1.8rem;
-    margin-top: 1.5rem;
+    font-size: 1.62rem; /* 90% of 1.8rem */
+    margin-top: 0.9rem; /* 90% of 1rem */
     background: linear-gradient(to right, #70029b, #a200ff, #f0d9ff);
     background-size: 200% 200%; /* Ensure the gradient spans beyond the visible area */
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradient-rotate 5s linear infinite; /* Add animation */
+    display: inline-block;
+    padding: 4.5px 13.5px; /* 90% of 5px 15px */
+    border-radius: 18px; /* 90% of 20px */
+    position: relative;
+}
+
+.about-details h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45px; /* 90% of 50px */
+    height: 2.7px; /* 90% of 3px */
+    background: linear-gradient(to right, #70029b, #a200ff);
+    border-radius: 3px;
 }
 
 .about-details ul {
-    display: flex; /* Use flexbox for layout */
+    display: flex;
+    flex-direction: row; /* Changed to row for horizontal layout */
     flex-wrap: wrap; /* Allow items to wrap to the next line */
     list-style: none;
     padding: 0;
-    margin: 1rem 0;
-    gap: 1rem; /* Add spacing between items */
-    justify-content: center; /* Center the items */
+    margin: 0.9rem 0;
+    gap: 0.72rem;
+    justify-content: center; /* Center items horizontally */
+    width: 100%; /* Take full width of container */
 }
 
 .about-details ul li {
-    font-size: 1rem;
-    margin: 0.5rem;
-    padding: 0.5rem 1rem; /* Add padding inside the list items */
-    border: 1px solid purple; /* Add a purple border */
-    border-radius: 5px; /* Add rounded corners */
-    text-align: center; /* Center the text inside the list item */
-    background-color: rgba(255, 255, 255, 0.1); /* Optional: Add a subtle background */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add hover effects */
+    font-size: 0.9rem;
+    margin: 0.27rem;
+    padding: 0.45rem 1.08rem;
+    border: 1px solid rgba(162, 0, 255, 0.5);
+    border-radius: 27px;
+    text-align: center;
+    background: rgba(70, 10, 100, 0.3);
+    box-shadow: 0 3.6px 7.2px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: auto; /* Allow width to be determined by content */
+    max-width: 300px; /* Prevent items from becoming too wide */
+}
+
+.about-details ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(112, 2, 155, 0.5), rgba(162, 0, 255, 0.5));
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
 }
 
 .about-details ul li:hover {
-    transform: scale(1.15); /* Slightly enlarge the item on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover */
+    transform: translateY(-4.5px) scale(1.05); /* 90% of -5px */
+    box-shadow: 0 5.4px 10.8px rgba(0, 0, 0, 0.3); /* 90% of shadow values */
+    border-color: rgba(240, 217, 255, 0.8);
+    color: #f0d9ff;
+}
+
+.about-details ul li:hover::before {
+    transform: scaleX(1);
 }
 
 @keyframes gradient-rotate {
@@ -98,6 +152,60 @@
     100% {
         background-position: 0% 50%;
     }
+}
+
+/* Remove the skills-background class since we're using separate containers */
+.skills-background {
+    display: none; /* Hide this since we're using individual containers now */
+}
+
+/* Row layout for category containers */
+.categories-row {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Increased gap between containers */
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+/* Common styles for all category containers */
+.category-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 18px; /* Increased padding */
+    margin-top: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+    width: 47%; /* Wider containers */
+    max-width: 550px; /* Increased max width */
+}
+
+/* Center the third category in its row */
+.categories-row:nth-child(3) {
+    justify-content: center;
+}
+
+.categories-row:nth-child(3) .category-container {
+    width: 47%; /* ~90% of 45% */
+}
+
+/* Specific styles for each category container */
+.hobbies-container {
+    background: linear-gradient(135deg, rgba(35, 10, 60, 0.6), rgba(20, 20, 30, 0.8));
+    border: 1px solid rgba(120, 40, 180, 0.3);
+}
+
+.tech-skills-container {
+    background: linear-gradient(135deg, rgba(10, 35, 60, 0.6), rgba(20, 25, 35, 0.8));
+    border: 1px solid rgba(40, 120, 180, 0.3);
+}
+
+.tools-container {
+    background: linear-gradient(135deg, rgba(40, 10, 60, 0.6), rgba(30, 20, 40, 0.8));
+    border: 1px solid rgba(150, 40, 180, 0.3);
 }
 
 /* Media query for screens with a max width of 800px */
@@ -120,14 +228,65 @@
     }
 
     .about-details ul li {
-        font-size: 0.8rem; /* Reduce font size */
-        padding: 0.3rem 0.8rem; /* Reduce padding */
-        margin: 0.3rem; /* Reduce margin */
+        font-size: 0.63rem; /* 90% of 0.7rem */
+        padding: 0.27rem 0.72rem; /* 90% of 0.3rem 0.8rem */
+        margin: 0.27rem; /* 90% of 0.3rem */
         border: 1px solid purple; /* Keep the border */
-        border-radius: 4px; /* Slightly smaller rounded corners */
+        border-radius: 3.6px; /* 90% of 4px */
     }
 
     .about-details ul {
-        gap: 0.5rem; /* Reduce spacing between items */
+        gap: 0.45rem; /* 90% of 0.5rem */
+    }
+
+    .skills-background {
+        padding: 10px;
+    }
+
+    .category-container {
+        padding: 9px; /* 90% of 10px */
+        margin-top: 9px;
+        margin-bottom: 9px;
+    }
+
+    .categories-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .category-container {
+        width: 90%; /* Very wide on mobile */
+        padding: 12px;
+        margin: 8px auto;
+        border-radius: 12px;
+        max-width: 450px;
+    }
+
+    .categories-row:nth-child(3) .category-container {
+        width: 90%;
+    }
+
+    .about-container {
+        width: 98%; /* Nearly full width on mobile */
+        margin-left: 1%;
+        margin-right: 1%;
+        padding: 1rem; /* Reduce padding */
+    }
+}
+
+/* Remove the media queries that made the layout responsive at 1200px */
+@media (max-width: 1200px) {
+    .about-container {
+        margin-left: 2.5%; /* Medium-sized screens adjustment */
+        margin-right: 2.5%;
+        width: 95%; /* Slightly wider on medium screens */
+    }
+
+    .category-container, 
+    .categories-row:nth-child(3) .category-container {
+        width: 47%;
+        max-width: 500px;
     }
 }
