@@ -15,19 +15,37 @@
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  background-color: #121212; /* Subtle semi-transparent black */
-  color: rgba(255, 255, 255, 0.87); /* Slightly muted white for blending */
-  padding: 1rem;
+  background-color: #121212;
+  color: rgba(255, 255, 255, 0.87);
   border-radius: 8px;
+  /* Removed border from here */
   font-size: 0.9rem;
   max-width: 300px;
-  backdrop-filter: blur(5px); /* Adds a subtle blur effect for blending */
+  backdrop-filter: blur(5px);
+  transition: none; /* Instant transitions */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+}
+
+.creator-info-box.info-open {
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Added border only when info box is open */
 }
 
 .creator-info-box h2 {
   margin: 0 0 0.5rem 0;
   font-size: 0.75rem;
-  color: rgba(50, 50, 50, 1); /* Match the text color */
+  color: white;
+  opacity: 0;
+  transition: none; /* Instant transitions */
+  white-space: nowrap;
 }
 
 .creator-info-box p {
@@ -35,17 +53,49 @@
   line-height: 1;
   font-size: 0.75rem;
   text-align: right;
-  color: rgba(50, 50, 50, 1); /* Match the text color */
+  color: white;
+  opacity: 0;
+  transition: none; /* Instant transitions */
+  white-space: nowrap;
+}
+
+.creator-info-box.info-open h2,
+.creator-info-box.info-open p {
+  opacity: 1;
 }
 
 .creator-info-box a {
-  color: rgba(50, 50, 50, 1); /* Match the text color */
-  text-decoration: none; /* Remove underline */
+  color: white;
+  text-decoration: none;
   font-weight: bold;
 }
 
 .creator-info-box a:hover {
-  color: #4103d3; /* Add a subtle hover effect */
+  color: #f0d9ff;
+}
+
+.creator-info-button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid white; /* Added white border */
+  /* No background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #a200ff; /* Changed from white to purple */
+  font-weight: bold;
+  font-size: 18px;
+  transition: none; /* Instant transitions */
+  opacity: 1; /* Changed from 0.5 to 1 for 100% opacity */
+}
+
+.creator-info-box.info-open .creator-info-button {
+  opacity: 0;
+  transform: scale(0);
 }
 
 /* Media Queries for Responsiveness */

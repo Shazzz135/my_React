@@ -1,15 +1,45 @@
+/* Hide scrollbar for all elements */
+html, body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: 100%; /* Ensure full height for scrolling */
+}
+
+/* Keep div scrolling but hide scrollbar appearance */
+div {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
 .projects-container {
     margin-top: 100px;
-    padding: 2rem;
+    padding: 2rem 4rem; /* Add horizontal padding */
     background-color: #121212; /* Matches the global background */
     color: #fff;
     font-family: Trebuchet MS, sans-serif;
     text-align: center;
-    max-height: 80vh; /* Adjust the height as needed */
-    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: none; /* Remove max height to allow full scrolling */
+    height: auto; /* Let it take full height of content */
+    overflow-y: visible; /* Make content visible beyond container */
     box-sizing: border-box; /* Ensure padding doesn't affect the width/height */
-    margin-left: 4rem;
-    margin-right: 4rem;
+    width: 100%; /* Take full width */
+    margin-left: 0;
+    margin-right: 0;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide WebKit scrollbar specifically for projects container */
+.projects-container::-webkit-scrollbar {
+    display: none;
 }
 
 .projects-title {
@@ -42,32 +72,35 @@
 }
 
 .projects-list {
-    display: flex; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    display: flex;
+    flex-wrap: wrap;
     list-style: none;
     padding: 0;
     margin: 1rem 0;
-    gap: 1rem; /* Add spacing between items */
-    justify-content: center; /* Center the items */
+    gap: 1.5rem;
+    justify-content: center;
 }
 
 .projects-list li {
     font-size: 1rem;
-    margin: 0.8rem; /* Reduce margin */
-    padding: 0.8rem; /* Reduce padding */
-    border: 1px solid purple; /* Add a purple border */
-    border-radius: 5px; /* Add rounded corners */
-    text-align: left; /* Align text to the left */
-    background-color: rgba(255, 255, 255, 0.1); /* Add a subtle background */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add hover effects */
-    width: 100%; /* Allow the box to expand dynamically */
-    max-width: 500px; /* Shrink the container width */
+    margin: 0.5rem;
+    padding: 0.8rem;
+    border: 1px solid purple;
+    border-radius: 5px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 45%;
+    /* Remove max-width to allow true equal sizing */
     display: flex;
-    flex-direction: column; /* Stack content vertically */
-    justify-content: space-between; /* Distribute space between elements */
-    margin-left: auto;
-    margin-right: auto; /* Center the list items */
+    flex-direction: column;
+    justify-content: flex-start; /* Changed from space-between to align content at the top */
+    flex: 1 1 45%;
+    min-height: 500px; /* Set minimum height to ensure uniform height */
+    height: 100%; /* Ensure full height within container */
+    margin-left: 0; /* Remove auto margins that can affect alignment */
+    margin-right: 0;
 }
 
 .projects-list li:hover {
@@ -85,21 +118,23 @@
 
 .project-video {
     width: 100%;
-    max-width: 300px; /* Shrink the video width */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 5px; /* Add rounded corners to the video */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow to the video */
-    margin: 0 auto; /* Center the video */
+    max-width: 300px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    object-fit: contain; /* Ensure video maintains aspect ratio */
 }
 
 .project-description {
     font-size: 1rem;
     line-height: 1.6;
-    color: #fff; /* White text for the description */
+    color: #fff;
     margin-top: 0.5rem;
     text-align: center;
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin-left: 1.5rem; /* Reduced margin for better text alignment */
+    margin-right: 1.5rem;
+    flex-grow: 1; /* Allow description to take available space */
 }
 
 .flap-link {
@@ -131,10 +166,11 @@
 }
 
 /* Media query for screens with a max width of 800px */
-@media (max-width: 800px) {
+@media (max-width: 650px) {
     .projects-container {
         padding: 0.8rem; /* Reduce padding */
-        max-width: 90%; /* Make the container width smaller */
+        width: 100%; /* Take full width on mobile */
+        max-width: none; /* Remove constraint */
     }
 
     .projects-description {
@@ -145,17 +181,19 @@
     }
 
     .projects-list {
-        flex-direction: column; /* Stack list items vertically */
+        flex-direction: column; /* Stack list items vertically on mobile */
         align-items: center; /* Center align the list items */
         gap: 0.8rem; /* Reduce spacing between items */
     }
 
     .projects-list li {
-        width: 100%; /* Make list items take full width */
-        max-width: 80%; /* Reduce the max-width of list items */
-        padding: 0.8rem; /* Reduce padding */
-        margin: 0.4rem auto; /* Center the list items */
-        box-shadow: 0 1.6px 3.2px rgba(0, 0, 0, 0.1); /* Scale shadow */
+        width: 100%;
+        max-width: 80%;
+        flex: none;
+        padding: 0.8rem;
+        margin: 0.4rem auto;
+        box-shadow: 0 1.6px 3.2px rgba(0, 0, 0, 0.1);
+        min-height: auto; /* Remove fixed height constraint on mobile */
     }
 
     .project-video {

@@ -12,6 +12,7 @@ import "./App.css";
 const App: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState<"loading" | "home">("loading");
   const [fadeClass, setFadeClass] = useState("fade-in");
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
 
   useEffect(() => {
     // Simulate loading screen for 2 seconds, then switch to home
@@ -25,6 +26,14 @@ const App: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleInfoClick = () => {
+    setIsInfoOpen(true);
+  };
+
+  const handleInfoLeave = () => {
+    setIsInfoOpen(false);
+  };
+
   return (
     <Router>
       {currentScreen === "home" && <Nav />}
@@ -37,13 +46,17 @@ const App: React.FC = () => {
             <Route path="/education" element={<Education />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contacts" element={<Contacts />} />
-            
           </Routes>
         )}
       </div>
 
       {/* Creator Info Box */}
-      <div className="creator-info-box">
+      <div 
+        className={`creator-info-box ${isInfoOpen ? 'info-open' : ''}`}
+        onClick={handleInfoClick}
+        onMouseLeave={handleInfoLeave}
+      >
+        <div className="creator-info-button">i</div>
         <h2>
           Creator:{" "}
           <a
