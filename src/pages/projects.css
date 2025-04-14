@@ -1,9 +1,10 @@
-/* Hide scrollbar for all elements */
+/* Hide scrollbar for all elements but keep scrolling functionality */
 html, body {
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
     overflow-y: auto; /* Enable vertical scrolling */
     height: 100%; /* Ensure full height for scrolling */
+    scroll-behavior: smooth; /* Enable smooth scrolling */
 }
 
 /* Keep div scrolling but hide scrollbar appearance */
@@ -84,28 +85,29 @@ div {
 .projects-list li {
     font-size: 1rem;
     margin: 0.5rem;
-    padding: 0.8rem;
-    border: 1px solid purple;
-    border-radius: 5px;
+    padding: 18px; /* Match padding with other containers */
+    border: 1px solid rgba(120, 40, 180, 0.3); /* Matching border style */
+    border-radius: 15px; /* Match border radius */
     text-align: left;
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    width: 45%;
-    /* Remove max-width to allow true equal sizing */
+    /* Replace simple background with gradient matching other containers */
+    background: linear-gradient(135deg, rgba(35, 10, 60, 0.6), rgba(20, 20, 30, 0.8));
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Match box shadow */
+    backdrop-filter: blur(5px); /* Add backdrop filter */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smoother transition */
+    width: 47%; /* Match width with other containers */
+    max-width: 550px; /* Match max-width */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Changed from space-between to align content at the top */
-    flex: 1 1 45%;
-    min-height: 500px; /* Set minimum height to ensure uniform height */
-    height: 100%; /* Ensure full height within container */
-    margin-left: 0; /* Remove auto margins that can affect alignment */
-    margin-right: 0;
+    justify-content: flex-start;
+    flex: none; /* Remove flex growth to maintain consistent width */
+    min-height: 500px;
+    height: 100%;
+    margin: 12px; /* Match margins */
 }
 
 .projects-list li:hover {
-    transform: scale(1.05); /* Slightly enlarge the item on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover */
+    transform: translateY(-5px); /* Match hover effect */
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4); /* Enhanced shadow matching other containers */
 }
 
 .project-subtitle {
@@ -118,11 +120,11 @@ div {
 
 .project-video {
     width: 100%;
-    max-width: 300px;
+    max-width: 320px; /* Slightly larger to better showcase the videos */
     height: auto;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;
+    box-shadow: 0 3.6px 7.2px rgba(0, 0, 0, 0.2); /* Match shadow style */
+    margin: 0.9rem auto; /* More consistent spacing */
     object-fit: contain; /* Ensure video maintains aspect ratio */
 }
 
@@ -187,18 +189,21 @@ div {
     }
 
     .projects-list li {
-        width: 100%;
-        max-width: 80%;
+        width: 100% !important; /* Ensure full width */
+        max-width: 650px; /* Match max-width with other containers */
         flex: none;
-        padding: 0.8rem;
-        margin: 0.4rem auto;
-        box-shadow: 0 1.6px 3.2px rgba(0, 0, 0, 0.1);
-        min-height: auto; /* Remove fixed height constraint on mobile */
+        padding: 20px; /* Match padding */
+        margin: 15px auto; /* Match margins */
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4); /* Match shadow */
+        border-radius: 15px; /* Match border radius */
+        min-height: 250px; /* Match min-height */
+        background: linear-gradient(135deg, rgba(35, 10, 60, 0.6), rgba(20, 20, 30, 0.8)); /* Keep gradient */
     }
 
     .project-video {
-        max-width: 100%; /* Ensure the video fits within the list item */
-        height: auto; /* Maintain aspect ratio */
+        max-width: 100%; /* Full width on mobile */
+        height: auto;
+        margin: 0.8rem auto; /* Adjusted spacing */
     }
 
     .project-description {
@@ -209,11 +214,20 @@ div {
     }
 
     .project-subtitle {
-        font-size: 1rem; /* Reduce subtitle size */
+        font-size: 1.4rem; /* Reduce subtitle size */
         text-align: center; /* Center align the subtitle */
     }
 
     .flap-link {
         font-size: 0.8rem; /* Reduce link font size */
+    }
+}
+
+/* Media query for medium screens to match other pages */
+@media (max-width: 1200px) {
+    .projects-list li {
+        width: 60% !important; /* Match width with other containers */
+        max-width: 600px;
+        padding: 22px;
     }
 }

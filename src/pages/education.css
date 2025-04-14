@@ -5,8 +5,8 @@
     color: #fff;
     font-family: Trebuchet MS, sans-serif;
     text-align: center;
-    max-height: 80vh; /* Adjust the height as needed */
-    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: none; /* Remove height constraint to allow continuous scrolling */
+    overflow-y: visible; /* Change from auto to visible */
     box-sizing: border-box; /* Ensure padding doesn't affect the width/height */
     width: 95%; /* Expanded to take most of the screen width */
     margin: 100px auto 0; /* Top, horizontal auto (centering), bottom */
@@ -63,19 +63,17 @@
     max-width: 550px; /* Increased max width */
 }
 
-.category-container:hover {
-    transform: translateY(-5px);
-}
-
 /* Specific styles for each category container */
 .university-container {
     background: linear-gradient(135deg, rgba(35, 10, 60, 0.6), rgba(20, 20, 30, 0.8));
     border: 1px solid rgba(120, 40, 180, 0.3);
+    width: 47% !important; /* Force same width as other containers */
 }
 
 .achievements-container {
     background: linear-gradient(135deg, rgba(10, 35, 60, 0.6), rgba(20, 25, 35, 0.8));
     border: 1px solid rgba(40, 120, 180, 0.3);
+    width: 47% !important; /* Force same width as other containers */
 }
 
 .education-details {
@@ -190,56 +188,77 @@
     }
     
     .education-description {
-        margin-left: 1rem;
-        margin-right: 1rem;
+        margin-left: 0.5rem; /* Reduce horizontal margin for smaller screens */
+        margin-right: 0.5rem;
         text-align: center;
+        font-size: 1.1rem; /* Slightly larger font for better readability */
     }
     
     .education-details ul li {
-        font-size: 0.63rem;
-        padding: 0.27rem 0.72rem;
-        margin: 0.27rem;
+        font-size: 0.8rem; /* Increased font size */
+        padding: 0.4rem 1rem; /* Increased padding */
+        margin: 0.4rem; /* Increased margin */
+        border-radius: 20px; /* More rounded corners */
         border: 1px solid purple;
-        border-radius: 3.6px;
     }
     
     .education-details ul {
-        gap: 0.45rem;
+        gap: 0.6rem; /* More space between items */
     }
     
     .categories-row {
         flex-direction: column;
         align-items: center;
-        gap: 15px;
-        margin-bottom: 15px;
+        gap: 20px; /* More vertical space between containers */
+        margin-bottom: 25px;
+        padding: 0 5px; /* Add some horizontal padding */
     }
     
-    .category-container {
-        width: 90%;
-        padding: 12px;
-        margin: 8px auto;
-        border-radius: 12px;
-        max-width: 450px;
+    .category-container,
+    .university-container,
+    .achievements-container {
+        width: 100% !important; /* Ensure all containers have the same width */
+        max-width: 650px;
+        min-height: 250px;
+        padding: 20px;
+        margin: 15px auto;
+        border-radius: 15px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
     }
     
     .education-container {
-        width: 98%;
-        margin-left: 1%;
-        margin-right: 1%;
-        padding: 1rem;
+        width: 100%; /* Full width */
+        margin: 70px 0 0 0; /* Adjust top margin to move content down from nav */
+        padding: 1.5rem 0.5rem; /* More vertical padding, less horizontal */
+        max-height: none; /* Remove height constraint */
+        overflow-y: visible; /* Change from auto to visible */
+    }
+    
+    /* Make headings slightly larger */
+    .education-title {
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .education-details h2 {
+        font-size: 1.8rem;
+        padding: 6px 15px;
     }
 }
 
 /* Medium screens */
 @media (max-width: 1200px) {
     .education-container {
-        margin-left: 2.5%;
-        margin-right: 2.5%;
-        width: 95%;
+        margin-left: 1%; /* Medium-sized screens adjustment */
+        margin-right: 1%;
+        width: 98%; /* Slightly wider on medium screens */
     }
     
-    .category-container {
-        width: 47%;
-        max-width: 500px;
+    .category-container,
+    .university-container,
+    .achievements-container {
+        width: 60% !important; /* Consistent width for all containers */
+        max-width: 600px;
+        padding: 22px;
     }
 }

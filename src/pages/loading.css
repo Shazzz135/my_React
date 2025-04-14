@@ -55,7 +55,8 @@
 }
 
 @media (max-width: 700px) {
-  .loading-text {
-    font-size: 2rem;
+  .name-animation {
+    font-size: 2rem; /* Reduced text size for smaller screens */
   }
 }
+

@@ -98,6 +98,11 @@
       margin-top: 1rem;
     }
   
+    /* Hide the "Email:" text on mobile */
+    .contact-row p:first-child {
+      display: none;
+    }
+  
     .text-row {
       gap: 0.2rem;
     }

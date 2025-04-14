@@ -5,8 +5,8 @@
     color: #fff;
     font-family: Trebuchet MS, sans-serif;
     text-align: center;
-    max-height: 80vh; /* Adjust the height as needed */
-    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: none; /* Remove height constraint to allow continuous scrolling */
+    overflow-y: visible; /* Change from auto to visible */
     box-sizing: border-box; /* Ensure padding doesn't affect the width/height */
     width: 95%; /* Expanded to take most of the screen width */
     margin: 100px auto 0; /* Top, horizontal auto (centering), bottom */
@@ -173,14 +173,14 @@
     display: flex;
     flex-direction: column;
     border-radius: 15px;
-    padding: 18px; /* Increased padding */
+    padding: 18px;
     margin-top: 12px;
     margin-bottom: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
     transition: transform 0.3s ease;
-    width: 47%; /* Wider containers */
-    max-width: 550px; /* Increased max width */
+    width: 47%; /* Standard width for all containers */
+    max-width: 550px;
 }
 
 /* Center the third category in its row */
@@ -189,7 +189,7 @@
 }
 
 .categories-row:nth-child(3) .category-container {
-    width: 47%; /* ~90% of 45% */
+    width: 47%; /* Ensuring consistent width with other containers */
 }
 
 /* Specific styles for each category container */
@@ -206,6 +206,8 @@
 .tools-container {
     background: linear-gradient(135deg, rgba(40, 10, 60, 0.6), rgba(30, 20, 40, 0.8));
     border: 1px solid rgba(150, 40, 180, 0.3);
+    width: 47% !important; /* Force same width as other containers */
+    max-width: 550px; /* Match max-width of other containers */
 }
 
 /* Media query for screens with a max width of 800px */
@@ -222,71 +224,84 @@
     }
 
     .about-description {
-        margin-left: 1rem; /* Reduce horizontal margin for smaller screens */
-        margin-right: 1rem;
+        margin-left: 0.5rem; /* Reduce horizontal margin for smaller screens */
+        margin-right: 0.5rem;
         text-align: center; /* Keep text justified for readability */
+        font-size: 1.1rem; /* Slightly larger font for better readability */
     }
 
     .about-details ul li {
-        font-size: 0.63rem; /* 90% of 0.7rem */
-        padding: 0.27rem 0.72rem; /* 90% of 0.3rem 0.8rem */
-        margin: 0.27rem; /* 90% of 0.3rem */
-        border: 1px solid purple; /* Keep the border */
-        border-radius: 3.6px; /* 90% of 4px */
+        font-size: 0.8rem; /* Increased font size */
+        padding: 0.4rem 1rem; /* Increased padding */
+        margin: 0.4rem; /* Increased margin */
+        border-radius: 20px; /* More rounded corners */
     }
 
     .about-details ul {
-        gap: 0.45rem; /* 90% of 0.5rem */
+        gap: 0.6rem; /* More space between items */
     }
 
     .skills-background {
         padding: 10px;
     }
 
-    .category-container {
-        padding: 9px; /* 90% of 10px */
-        margin-top: 9px;
-        margin-bottom: 9px;
-    }
-
+    /* Fix the duplication and make all containers the same width */
     .categories-row {
         flex-direction: column;
         align-items: center;
-        gap: 15px;
-        margin-bottom: 15px;
+        gap: 20px;
+        margin-bottom: 25px;
+        padding: 0 5px; /* Add some horizontal padding */
     }
 
-    .category-container {
-        width: 90%; /* Very wide on mobile */
-        padding: 12px;
-        margin: 8px auto;
-        border-radius: 12px;
-        max-width: 450px;
-    }
-
-    .categories-row:nth-child(3) .category-container {
-        width: 90%;
+    .category-container, 
+    .categories-row:nth-child(3) .category-container,
+    .tools-container {
+        width: 100% !important; /* Ensure all containers have the same width */
+        max-width: 650px;
+        min-height: 250px;
+        padding: 20px;
+        margin: 15px auto;
+        border-radius: 15px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
     }
 
     .about-container {
-        width: 98%; /* Nearly full width on mobile */
-        margin-left: 1%;
-        margin-right: 1%;
+        width: 100%; /* Increased from 98% to use full width */
+        margin-left: 0;
+        margin-right: 0;
         padding: 1rem; /* Reduce padding */
+        margin: 70px 0 0 0; /* Adjust top margin to move content down from nav */
+        padding: 1.5rem 0.5rem; /* More vertical padding, less horizontal */
+        max-height: none; /* Remove height constraint */
+        overflow-y: visible; /* Change from auto to visible */
+    }
+
+    /* Make headings slightly larger */
+    .about-title {
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-details h2 {
+        font-size: 1.8rem;
+        padding: 6px 15px;
     }
 }
 
 /* Remove the media queries that made the layout responsive at 1200px */
 @media (max-width: 1200px) {
     .about-container {
-        margin-left: 2.5%; /* Medium-sized screens adjustment */
-        margin-right: 2.5%;
-        width: 95%; /* Slightly wider on medium screens */
+        margin-left: 1%; /* Medium-sized screens adjustment */
+        margin-right: 1%;
+        width: 98%; /* Slightly wider on medium screens */
     }
 
     .category-container, 
-    .categories-row:nth-child(3) .category-container {
-        width: 47%;
-        max-width: 500px;
+    .categories-row:nth-child(3) .category-container,
+    .tools-container {
+        width: 60% !important; /* Consistent width for all containers */
+        max-width: 600px;
+        padding: 22px;
     }
 }
