@@ -94,8 +94,8 @@ div {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Match box shadow */
     backdrop-filter: blur(5px); /* Add backdrop filter */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smoother transition */
-    width: 47%; /* Match width with other containers */
-    max-width: 550px; /* Match max-width */
+    width: 70%; /* Increased from 47% for wider containers */
+    max-width: 800px; /* Increased from 550px for wider containers */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -111,32 +111,22 @@ div {
 }
 
 .project-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.4rem; /* Reduced from 1.5rem by 0.1rem */
     margin-bottom: 0.5rem;
     color: #a200ff; /* Purple color for the subtitle */
     font-weight: bold;
-    text-align: center;
+    text-align: center; /* Ensure centered alignment */
 }
 
 .project-video {
     width: 100%;
-    max-width: 320px; /* Slightly larger to better showcase the videos */
+    max-width: 320px;
     height: auto;
     border-radius: 5px;
     box-shadow: 0 3.6px 7.2px rgba(0, 0, 0, 0.2); /* Match shadow style */
-    margin: 0.9rem auto; /* More consistent spacing */
+    margin: 0 auto; /* Center horizontally */
     object-fit: contain; /* Ensure video maintains aspect ratio */
-}
-
-.project-description {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #fff;
-    margin-top: 0.5rem;
-    text-align: center;
-    margin-left: 1.5rem; /* Reduced margin for better text alignment */
-    margin-right: 1.5rem;
-    flex-grow: 1; /* Allow description to take available space */
+    display: block; /* Important for proper centering */
 }
 
 .flap-link {
@@ -147,6 +137,35 @@ div {
 
 .flap-link:hover {
     color: red; /* Turn red on hover */
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    margin: 0.9rem auto;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    pointer-events: none;
+    border: 2px solid rgba(162, 0, 255, 0.7);
 }
 
 @keyframes gradient-rotate {
@@ -201,9 +220,9 @@ div {
     }
 
     .project-video {
-        max-width: 100%; /* Full width on mobile */
+        max-width: 80%; /* Full width on mobile */
         height: auto;
-        margin: 0.8rem auto; /* Adjusted spacing */
+        margin: 0 auto; /* Center horizontally */
     }
 
     .project-description {
@@ -214,20 +233,46 @@ div {
     }
 
     .project-subtitle {
-        font-size: 1.4rem; /* Reduce subtitle size */
-        text-align: center; /* Center align the subtitle */
+        font-size: 1.3rem; /* Reduced from 1.4rem by 0.1rem */
+        text-align: center; /* Ensure centered alignment */
     }
 
     .flap-link {
         font-size: 0.8rem; /* Reduce link font size */
+    }
+
+    .play-button {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .video-container {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.8rem auto;
     }
 }
 
 /* Media query for medium screens to match other pages */
 @media (max-width: 1200px) {
     .projects-list li {
-        width: 60% !important; /* Match width with other containers */
-        max-width: 600px;
+        width: 80% !important; /* Increased from 60% for wider containers */
+        max-width: 900px; /* Increased from 600px for wider containers */
         padding: 22px;
+    }
+
+    .video-container {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .project-video {
+        max-width: 80%;
+        margin: 0 auto;
     }
 }
